@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Fix Tester - Connectra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #2C3E5F 0%, #6B1F3C 100%);
+            color: white;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .test-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #D4AF37;
+        }
+        
+        .test-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+        }
+        
+        .test-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .test-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 30px;
+        }
+        
+        .passed { color: #4CAF50; }
+        .warning { color: #FF9800; }
+        .failed { color: #F44336; }
+        .pending { color: #9E9E9E; }
+        
+        .button {
+            background: linear-gradient(135deg, #D4AF37 0%, #C9A02C 100%);
+            color: #2C3E5F;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .button:active {
+            transform: translateY(0);
+        }
+        
+        .info-box {
+            background: rgba(33, 150, 243, 0.2);
+            border-left: 4px solid #2196F3;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-box h3 {
+            color: #64B5F6;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .info-box p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .viewport-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .viewport-stat {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .viewport-stat .label {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+        
+        .viewport-stat .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .test-section h2 {
+                font-size: 1.1rem;
+            }
+            
+            .button {
+                padding: 0.875rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Mobile Fix Tester</h1>
+        <p class="subtitle">Connectra v2.1 - Critical Mobile Fixes</p>
+        
+        <div class="info-box">
+            <h3>📱 How to Use This Tester</h3>
+            <p>
+                This page helps you verify that the footer and hero video mobile fixes are working correctly.
+                Click the "Run Tests" button to check all critical components. For best results, test on actual mobile devices or use Chrome DevTools device emulation.
+            </p>
+        </div>
+        
+        <div id="viewport-section" class="test-section">
+            <h2>📐 Current Viewport</h2>
+            <div class="viewport-info">
+                <div class="viewport-stat">
+                    <div class="label">Width</div>
+                    <div class="value" id="viewport-width">-</div>
+                </div>
+                <div class="viewport-stat">
+                    <div class="label">Height</div>
+                    <div class="value" id="viewport-height">-</div>
+                </div>
+                <div class="viewport-stat">
+                    <div class="label">Device</div>
+                    <div class="value" id="device-type">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="test-results" class="test-section">
+            <h2>✅ Test Results</h2>
+            <div id="results-container">
+                <div class="test-item pending">
+                    <span class="icon">⏳</span>
+                    <span>Click "Run Tests" to start verification</span>
+                </div>
+            </div>
+        </div>
+        
+        <button class="button" onclick="runTests()">▶️ Run Tests</button>
+        
+        <div class="test-section">
+            <h2>🚀 Quick Actions</h2>
+            <button class="button" onclick="window.location.href='index.html'" style="margin-bottom: 0.5rem;">
+                🏠 Test on Homepage
+            </button>
+            <button class="button" onclick="window.open('index.html', '_blank').document.querySelector('.footer').scrollIntoView({behavior: 'smooth'})">
+                👣 Jump to Footer
+            </button>
+        </div>
+        
+        <div class="info-box" style="margin-top: 1.5rem;">
+            <h3>📋 Manual Testing Checklist</h3>
+            <p style="margin-bottom: 0.5rem;">After running automated tests, manually verify:</p>
+            <ul style="list-style-position: inside; font-size: 0.9rem; line-height: 1.8;">
+                <li>Footer columns stack vertically (not side-by-side)</li>
+                <li>Hero video covers entire viewport (no black bars)</li>
+                <li>No horizontal scrolling on any page</li>
+                <li>Text is readable on all backgrounds</li>
+                <li>Touch targets are at least 44x44px</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Update viewport info
+        function updateViewportInfo() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            document.getElementById('viewport-width').textContent = width + 'px';
+            document.getElementById('viewport-height').textContent = height + 'px';
+            
+            let deviceType = 'Desktop';
+            if (width <= 480) deviceType = 'Mobile (S)';
+            else if (width <= 768) deviceType = 'Mobile (L)';
+            else if (width <= 1024) deviceType = 'Tablet';
+            
+            document.getElementById('device-type').textContent = deviceType;
+        }
+        
+        // Run tests
+        function runTests() {
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = '';
+            
+            const tests = [];
+            
+            // Test 1: Critical CSS loaded
+            const criticalCSS = window.opener ? 
+                window.opener.document.querySelector('link[href*="critical-mobile-fixes"]') : 
+                null;
+            
+            if (window.opener) {
+                tests.push({
+                    name: 'Critical CSS Loaded',
+                    passed: !!criticalCSS,
+                    message: criticalCSS ? 'critical-mobile-fixes.css found' : 'CSS file not loaded on main page'
+                });
+                
+                // Test 2: Footer exists
+                const footer = window.opener.document.querySelector('.footer-main');
+                tests.push({
+                    name: 'Footer Element',
+                    passed: !!footer,
+                    message: footer ? 'Footer element exists' : 'Footer not found'
+                });
+                
+                // Test 3: Hero video exists
+                const video = window.opener.document.querySelector('.hero-video');
+                tests.push({
+                    name: 'Hero Video Element',
+                    passed: !!video,
+                    message: video ? 'Video element exists' : 'Video not found'
+                });
+                
+                // Test 4: Check footer mobile styles
+                if (footer && window.innerWidth <= 768) {
+                    const styles = window.opener.getComputedStyle(footer);
+                    const isMobile = styles.display === 'block' || styles.gridTemplateColumns === '1fr';
+                    tests.push({
+                        name: 'Footer Mobile Layout',
+                        passed: isMobile,
+                        message: isMobile ? 'Footer uses single-column layout' : 'Footer still using grid: ' + styles.gridTemplateColumns
+                    });
+                }
+                
+                // Test 5: Check video object-fit
+                if (video) {
+                    const videoStyles = window.opener.getComputedStyle(video);
+                    const hasObjectFitCover = videoStyles.objectFit === 'cover';
+                    tests.push({
+                        name: 'Video Object-Fit',
+                        passed: hasObjectFitCover,
+                        message: hasObjectFitCover ? 'Video uses object-fit: cover' : 'Object-fit: ' + videoStyles.objectFit
+                    });
+                }
+            } else {
+                // If no opener, show instructions
+                tests.push({
+                    name: 'Test Setup',
+                    passed: false,
+                    warning: true,
+                    message: 'Open this page from index.html for full testing'
+                });
+            }
+            
+            // Viewport test
+            const isMobileWidth = window.innerWidth <= 768;
+            tests.push({
+                name: 'Mobile Viewport',
+                passed: isMobileWidth,
+                warning: !isMobileWidth,
+                message: isMobileWidth ? 
+                    'Testing on mobile viewport (' + window.innerWidth + 'px)' : 
+                    'Desktop viewport - resize to ≤768px for mobile tests'
+            });
+            
+            // Render results
+            tests.forEach(test => {
+                const item = document.createElement('div');
+                item.className = 'test-item ' + (test.passed ? 'passed' : test.warning ? 'warning' : 'failed');
+                
+                const icon = test.passed ? '✅' : test.warning ? '⚠️' : '❌';
+                const statusText = test.passed ? 'PASS' : test.warning ? 'WARN' : 'FAIL';
+                
+                item.innerHTML = `
+                    <span class="icon">${icon}</span>
+                    <div>
+                        <strong>${test.name}</strong>: ${statusText}<br>
+                        <span style="font-size: 0.85rem; opacity: 0.8;">${test.message}</span>
+                    </div>
+                `;
+                
+                resultsContainer.appendChild(item);
+            });
+            
+            // Summary
+            const passedCount = tests.filter(t => t.passed).length;
+            const totalCount = tests.length;
+            
+            const summary = document.createElement('div');
+            summary.className = 'test-item ' + (passedCount === totalCount ? 'passed' : 'warning');
+            summary.innerHTML = `
+                <span class="icon">📊</span>
+                <div>
+                    <strong>Summary</strong>: ${passedCount}/${totalCount} tests passed<br>
+                    <span style="font-size: 0.85rem; opacity: 0.8;">
+                        ${passedCount === totalCount ? 'All tests passed! 🎉' : 'Some tests need attention'}
+                    </span>
+                </div>
+            `;
+            resultsContainer.appendChild(summary);
+        }
+        
+        // Update viewport on load and resize
+        updateViewportInfo();
+        window.addEventListener('resize', updateViewportInfo);
+        
+        // Auto-run tests if opened from another page
+        if (window.opener) {
+            setTimeout(runTests, 500);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+/* Hero Section Video Fixes */
+
+/* Services and Partners Section Background Fixes */
+.services {
+    background: #efefef !important;
+    color: var(--text-dark) !important;
+}
+
+.services .section-title,
+.services .section-description {
+    color: var(--text-dark) !important;
+}
+
+.partners {
+    background: var(--gradient-primary) !important;
+    color: var(--text-light) !important;
+}
+
+.partners .section-title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(255, 255, 255, 0.3) !important;
+    font-weight: 700 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.partners .section-description {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.partners .section-subtitle {
+    color: var(--primary-gold) !important;
+}
+.hero {
+    position: relative !important;
+    height: 100vh !important;
+    width: 100% !important;
+    overflow: hidden !important;
+}
+
+.hero-video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 1 !important;
+}
+
+.video-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.05) 60%,
+        rgba(0, 0, 0, 0.03) 100%
+    ) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+}
+
+.hero-content {
+    position: relative !important;
+    z-index: 1 !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+/* Remove other background elements that might interfere */
+.hero .animated-particles,
+.hero .floating-shapes,
+.hero .gradient-overlay:not(.video-overlay) {
+    display: none !important;
+}
+
+/* Ensure proper mobile display */
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh !important;
+        height: 100dvh !important; /* For mobile browsers */
+    }
+
+    .hero-video {
+        object-position: center !important;
+    }
+}

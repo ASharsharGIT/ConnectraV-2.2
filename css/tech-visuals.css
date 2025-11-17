@@ -1,0 +1,417 @@
+/* ============================================
+   DYNAMIC TECH VISUALS & DATA FLOW
+   Professional animated backgrounds and effects
+   ============================================ */
+
+:root {
+    --flow-speed: 3s;
+    --data-color: #D4AF37;
+}
+
+/* ============================================
+   ANIMATED TECH BACKGROUND GRID
+   ============================================ */
+.tech-grid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+    background-image: 
+        linear-gradient(rgba(44, 62, 95, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(44, 62, 95, 0.5) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: grid-flow 30s linear infinite;
+}
+
+@keyframes grid-flow {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+/* ============================================
+   DATA FLOW CABLES/LINES
+   ============================================ */
+.data-flow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.data-cable {
+    position: absolute;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(44, 62, 95, 0.8), 
+        rgba(107, 31, 60, 0.8),
+        transparent);
+    height: 2px;
+    width: 200px;
+    opacity: 0;
+    animation: cable-flow var(--flow-speed) ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(44, 62, 95, 0.3);
+}
+
+.data-cable.vertical {
+    width: 2px;
+    height: 200px;
+    background: linear-gradient(180deg, 
+        transparent, 
+        rgba(212, 175, 55, 0.6), 
+        rgba(0, 217, 255, 0.6),
+        transparent);
+}
+
+@keyframes cable-flow {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(200vw);
+        opacity: 0;
+    }
+}
+
+/* Vertical flow */
+.data-cable.vertical {
+    animation: cable-flow-vertical var(--flow-speed) ease-in-out infinite;
+}
+
+@keyframes cable-flow-vertical {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(200vh);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   BINARY DATA STREAM
+   ============================================ */
+.binary-stream {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: rgba(212, 175, 55, 0.5);
+    white-space: nowrap;
+    opacity: 0;
+    animation: binary-fall 5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes binary-fall {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   GLOWING DATA PACKETS
+   ============================================ */
+.data-packet {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #D4AF37;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 1),
+                0 0 30px rgba(212, 175, 55, 0.6);
+    opacity: 0;
+    animation: packet-travel 4s ease-in-out infinite;
+}
+
+@keyframes packet-travel {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(100vw, 50vh) scale(0);
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   TECH NETWORK NODES
+   ============================================ */
+.network-nodes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.network-node {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 50%;
+    animation: node-pulse 2s ease-in-out infinite;
+}
+
+@keyframes node-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+        transform: scale(1.5);
+    }
+}
+
+.network-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        rgba(212, 175, 55, 0.2), 
+        rgba(212, 175, 55, 0.5), 
+        rgba(212, 175, 55, 0.2));
+    transform-origin: left center;
+    animation: connection-pulse 3s ease-in-out infinite;
+}
+
+@keyframes connection-pulse {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* ============================================
+   TECH PATTERN OVERLAY
+   ============================================ */
+.tech-pattern-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ============================================
+   DIGITAL RAIN EFFECT (Matrix style)
+   ============================================ */
+.digital-rain {
+    position: absolute;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: rgba(212, 175, 55, 0.6);
+    opacity: 0;
+    white-space: pre;
+    pointer-events: none;
+    animation: rain-fall 8s linear infinite;
+}
+
+@keyframes rain-fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(calc(100vh + 100px));
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   SCANNING LINE EFFECT
+   ============================================ */
+.scan-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(0, 217, 255, 0.8), 
+        transparent);
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
+    animation: scan-move 4s ease-in-out infinite;
+}
+
+@keyframes scan-move {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* ============================================
+   LOADING BAR ANIMATION
+   ============================================ */
+.tech-loading-bar {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background: rgba(212, 175, 55, 0.1);
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.tech-loading-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(212, 175, 55, 0.8), 
+        rgba(0, 217, 255, 0.8), 
+        transparent);
+    animation: loading-sweep 2s ease-in-out infinite;
+}
+
+@keyframes loading-sweep {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 200%;
+    }
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .data-cable,
+    .digital-rain,
+    .binary-stream {
+        display: none; /* Reduce effects on mobile */
+    }
+    
+    .tech-grid-background {
+        background-size: 30px 30px;
+    }
+    
+    .data-packet {
+        width: 3px;
+        height: 3px;
+    }
+}
+
+/* Reduce animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .data-cable,
+    .binary-stream,
+    .data-packet,
+    .digital-rain,
+    .scan-line {
+        animation: none !important;
+        opacity: 0.1 !important;
+    }
+    
+    .network-node,
+    .network-connection {
+        animation: none !important;
+    }
+}
+
+/* ============================================
+   APPLY TO SECTIONS
+   ============================================ */
+.hero-section,
+.services,
+.about-preview,
+.service-detail {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ensure content stays above animations */
+.hero-section .container,
+.services .container,
+.about-preview .container,
+.service-detail .container {
+    position: relative;
+    z-index: 10;
+}
+
+/* Performance/Battery gating: hide heavy visuals on low resources */
+body.low-performance .animated-particles,
+body.low-performance .floating-shapes,
+body.low-performance .tech-grid-background,
+body.low-performance .data-flow-container,
+body.low-performance .network-nodes,
+body.battery-save .animated-particles,
+body.battery-save .floating-shapes,
+body.battery-save .tech-grid-background,
+body.battery-save .data-flow-container,
+body.battery-save .network-nodes {
+    display: none !important;
+}

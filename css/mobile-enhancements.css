@@ -1,0 +1,473 @@
+/* ================================
+   CONNECTRA MOBILE ENHANCEMENTS
+   Additional responsive improvements
+   ================================ */
+
+/* Prevent horizontal overflow on all devices */
+* {
+    max-width: 100%;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Ensure container never causes overflow */
+.container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Improve image responsiveness */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Video responsiveness */
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ensure nav container doesn't overflow */
+.nav-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+    /* Disable cursor effects on mobile */
+    .cursor,
+    .cursor-follower {
+        display: none !important;
+    }
+    
+    /* Improve mobile menu */
+    .mobile-menu-overlay {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-menu-content {
+        overflow-y: auto;
+        max-height: 100vh;
+        /* Hide scrollbar while maintaining functionality */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+    
+    .mobile-menu-content::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    /* Better touch targets */
+    .nav-link,
+    .cta-button,
+    .card-link,
+    .mobile-nav a {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 16px;
+    }
+    
+    /* Hamburger menu touch optimization */
+    .hamburger {
+        padding: 12px;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Improve hero video on mobile */
+    .hero-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+    
+    /* Footer improvements for mobile */
+    .footer-main {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+    }
+    
+    .footer-columns-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    
+    .legal-links {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* Projects grid responsive */
+    .projects-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Video grid improvements */
+    .video-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Showcase section improvements */
+    .showcase-section {
+        padding: 3rem 0 !important;
+    }
+    
+    /* Partner badges wrap properly */
+    .partner-badges {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+    }
+    
+    /* Swiper improvements for mobile */
+    .partners-swiper {
+        overflow: visible !important;
+    }
+    
+    .swiper-slide {
+        width: auto !important;
+    }
+}
+
+/* Small mobile devices (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    /* Extra small padding */
+    .container {
+        padding: 0 1rem !important;
+    }
+    
+    .nav-container {
+        padding: 0 1rem !important;
+    }
+    
+    /* Smaller hero stats */
+    .hero-stats {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    
+    .stat {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Footer single column */
+    .footer-columns-wrapper {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Smaller buttons */
+    .cta-button {
+        font-size: 0.875rem !important;
+        padding: 10px 20px !important;
+    }
+    
+    /* Stat cards 1 column on very small screens */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Tablet landscape improvements */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* Optimize hero for landscape tablets */
+    .hero {
+        min-height: 80vh !important;
+    }
+    
+    .hero-content {
+        padding: 4rem 0 !important;
+    }
+    
+    /* Services in 2 columns */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    /* Projects in 2 columns */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Tablet portrait improvements */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    /* Hero optimizations */
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+    
+    /* Two column layouts */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .footer-columns-wrapper {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 812px) and (orientation: landscape) {
+    /* Reduce hero height for landscape phones */
+    .hero {
+        min-height: 100vh !important;
+    }
+    
+    .hero-title {
+        font-size: 2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-description {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-stats {
+        margin-top: 2rem !important;
+        gap: 1rem !important;
+    }
+    
+    /* Reduce section padding */
+    section {
+        padding: 3rem 0 !important;
+    }
+}
+
+/* Fix mega menu on tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mega-menu {
+        width: 90vw !important;
+        max-width: 600px !important;
+        background: #FFFFFF !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    .mega-menu-content {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .mega-menu-highlight {
+        grid-column: span 1 !important;
+        background: linear-gradient(135deg, #6B1F3C 0%, #2C3E5F 100%) !important;
+    }
+    
+    .mega-menu-highlight h4,
+    .mega-menu-highlight h5,
+    .mega-menu-highlight p {
+        color: #FFFFFF !important;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects that don't work on touch */
+    .service-card:hover,
+    .partner-category:hover,
+    .partner-badge:hover {
+        transform: none !important;
+    }
+    
+    /* Make interactive elements obvious */
+    .cta-button,
+    .card-link,
+    .nav-link {
+        border: 1px solid rgba(107, 31, 60, 0.2);
+    }
+    
+    /* Larger social links for touch */
+    .social-link {
+        min-width: 48px !important;
+        min-height: 48px !important;
+    }
+}
+
+/* High resolution mobile displays */
+@media (-webkit-min-device-pixel-ratio: 2) and (max-width: 768px),
+       (min-resolution: 192dpi) and (max-width: 768px) {
+    /* Sharper text on retina mobile displays */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Fix viewport height on iOS */
+    .hero {
+        min-height: -webkit-fill-available;
+    }
+    
+    /* Prevent zoom on input focus */
+    input,
+    select,
+    textarea {
+        font-size: 16px !important;
+    }
+}
+
+/* Android Chrome specific fixes */
+@supports (-webkit-appearance: none) and (not (-webkit-touch-callout: none)) {
+    /* Smooth scrolling */
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .scroll-indicator {
+        animation: none !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    /* Optional: Add dark mode styles if needed */
+    /* Currently maintaining light theme for consistency */
+}
+
+/* Print optimizations */
+@media print {
+    /* Hide interactive elements */
+    .hamburger,
+    .mobile-menu-overlay,
+    .cursor,
+    .cursor-follower,
+    .back-to-top,
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    /* Optimize for print */
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .hero {
+        min-height: auto !important;
+        page-break-after: always;
+    }
+}
+
+/* Foldable devices (Samsung Galaxy Fold, etc.) */
+@media (min-width: 280px) and (max-width: 653px) {
+    .container {
+        padding: 0 0.75rem !important;
+    }
+    
+    .hero-title {
+        font-size: 1.75rem !important;
+    }
+    
+    .section-title {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Very large screens optimization */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px !important;
+    }
+    
+    /* Prevent content from being too spread out */
+    .section-header {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Fix any text that might overflow */
+h1, h2, h3, h4, h5, h6,
+.hero-title,
+.section-title,
+.card-title {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Ensure buttons don't overflow */
+.cta-button,
+.card-link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Fix partner logos */
+.partner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Ensure sections don't have horizontal overflow */
+section {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Fix navbar on very small screens */
+@media (max-width: 320px) {
+    .navbar {
+        height: 60px !important;
+    }
+    
+    .logo-image {
+        height: 30px !important;
+        width: auto !important;
+    }
+    
+    .nav-container {
+        padding: 0 0.5rem !important;
+    }
+}

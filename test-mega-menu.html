@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Menu Test</title>
+    
+    <!-- Load CSS in exact same order as index.html -->
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/animations.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/responsive.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/mobile-enhancements.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/fixes.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/hightech.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/tech-visuals.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/professional-buttons.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/fixes-professional.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/fixes-professional-updated.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/interactive-elements.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/projects.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/enterprise-services-premium.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/advanced-interactivity.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/scrollbar-fixes.css?v=<?php echo time(); ?>">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-info {
+            background: #f0f0f0;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .test-info h2 {
+            margin-top: 0;
+        }
+        .computed-styles {
+            background: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .nav-item {
+            display: inline-block;
+            position: relative;
+            padding: 20px;
+        }
+        .mega-menu {
+            position: relative !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: none !important;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-info">
+            <h2>Mega Menu Background Test</h2>
+            <p><strong>Expected:</strong> Solid white background (#FFFFFF)</p>
+            <p><strong>If you see transparency:</strong> Hard refresh with Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)</p>
+        </div>
+        
+        <div class="nav-item dropdown">
+            <div class="mega-menu">
+                <div class="mega-menu-content">
+                    <div class="mega-menu-section">
+                        <h4>Enterprise Solutions</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-server"></i> Data Center</a></li>
+                            <li><a href="#"><i class="fas fa-shield-alt"></i> Cybersecurity</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-section">
+                        <h4>Infrastructure</h4>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-network-wired"></i> Networking</a></li>
+                            <li><a href="#"><i class="fas fa-cloud"></i> Cloud Solutions</a></li>
+                        </ul>
+                    </div>
+                    <div class="mega-menu-highlight">
+                        <h4>Featured Solution</h4>
+                        <div class="feature-card">
+                            <i class="fas fa-bolt"></i>
+                            <h5>Smart City Solutions</h5>
+                            <p>Complete ICT infrastructure for modern cities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-info computed-styles">
+            <h3>Computed Background Value:</h3>
+            <div id="computed-bg">Checking...</div>
+        </div>
+    </div>
+    
+    <script>
+        window.addEventListener('load', () => {
+            const megaMenu = document.querySelector('.mega-menu');
+            const computedBg = window.getComputedStyle(megaMenu).backgroundColor;
+            const computedBackdrop = window.getComputedStyle(megaMenu).backdropFilter;
+            
+            document.getElementById('computed-bg').innerHTML = `
+                <strong>background-color:</strong> ${computedBg}<br>
+                <strong>backdrop-filter:</strong> ${computedBackdrop}<br>
+                <br>
+                <strong>✅ EXPECTED:</strong> rgb(255, 255, 255) or #FFFFFF<br>
+                <strong>✅ BACKDROP:</strong> none<br>
+                <br>
+                <strong>Actual Match:</strong> ${computedBg === 'rgb(255, 255, 255)' ? '✅ CORRECT' : '❌ WRONG - Clear cache!'}
+            `;
+        });
+    </script>
+</body>
+</html>

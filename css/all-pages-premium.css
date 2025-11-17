@@ -1,0 +1,1077 @@
+/* ============================================
+   CONNECTRA - ALL PAGES PREMIUM ENHANCEMENT
+   Ultra-Premium Interactive Enhancements for All Pages
+   Author: Connectra Design Team
+   Version: 2.0
+   ============================================ */
+
+:root {
+    --premium-glow-primary: rgba(212, 175, 55, 0.8);
+    --premium-glow-secondary: rgba(107, 31, 60, 0.6);
+    --premium-gradient-1: linear-gradient(135deg, #6B1F3C 0%, #8B2F5C 50%, #2C3E5F 100%);
+    --premium-gradient-2: linear-gradient(45deg, #8B2F5C, #6B1F3C, #8B2F5C);
+    --premium-gradient-3: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(107, 31, 60, 0.1));
+    --premium-shadow: 0 25px 60px -15px rgba(107, 31, 60, 0.35), 
+                      0 15px 35px -10px rgba(212, 175, 55, 0.25),
+                      0 0 50px -10px rgba(212, 175, 55, 0.15);
+}
+
+/* ============================================
+   SERVICES PAGE - HERO SECTION
+   ============================================ */
+.services-hero {
+    position: relative;
+    background: linear-gradient(135deg, #2C3E5F 0%, #6B1F3C 100%);
+    padding: 10rem 0 6rem;
+    overflow: hidden;
+}
+
+.services-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(107, 31, 60, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.services-hero .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #8B2F5C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: premium-title-glow 4s ease-in-out infinite;
+}
+
+.services-hero .hero-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.services-hero .hero-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+.services-hero .hero-breadcrumb a {
+    color: #8B2F5C;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.services-hero .hero-breadcrumb a:hover {
+    color: #6B1F3C;
+}
+
+/* ============================================
+   SERVICES NAVIGATOR - PREMIUM ENHANCEMENT
+   ============================================ */
+.services-navigator {
+    background: #FFFFFF;
+    padding: 4rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.services-navigator h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    background: var(--premium-gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.service-nav-grid .nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 16px;
+    text-decoration: none;
+    color: #2C3E5F;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+}
+
+.service-nav-grid .nav-item::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--premium-gradient-1);
+    border-radius: 16px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.service-nav-grid .nav-item:hover::before {
+    opacity: 1;
+}
+
+.service-nav-grid .nav-item:hover {
+    transform: translateY(-3px);
+    color: #6B1F3C;
+    box-shadow: 0 15px 40px rgba(107, 31, 60, 0.25);
+}
+
+.service-nav-grid .nav-item i {
+    font-size: 2.5rem;
+    color: #8B2F5C;
+    transition: all 0.4s ease;
+}
+
+.service-nav-grid .nav-item:hover i {
+    transform: scale(1.05);
+    color: #6B1F3C;
+}
+
+/* ============================================
+   SERVICE DETAIL SECTIONS - PREMIUM CARDS
+   ============================================ */
+.service-detail {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.service-detail.alternate {
+    background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 100%);
+}
+
+.service-detail .service-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.service-detail .service-icon {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #6B1F3C 0%, #8B2F4C 100%);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #FFFFFF;
+    box-shadow: 0 15px 40px rgba(107, 31, 60, 0.3);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-detail .service-icon::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+    border-radius: 21px;
+    animation: premium-icon-shine 3s ease-in-out infinite;
+}
+
+.service-detail:hover .service-icon {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #8B2F5C 0%, #6B1F3C 100%);
+}
+
+.service-detail .service-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #2C3E5F;
+    margin-bottom: 0.5rem;
+}
+
+.service-detail .service-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* ============================================
+   FEATURE CARDS ENHANCEMENT
+   ============================================ */
+.feature-card,
+.additional-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+}
+
+.feature-card::before,
+.additional-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--premium-gradient-1);
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+    animation: premium-border-rotate 8s linear infinite;
+    background-size: 300% 300%;
+}
+
+.feature-card:hover::before,
+.additional-card:hover::before {
+    opacity: 1;
+}
+
+.feature-card:hover,
+.additional-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--premium-shadow);
+}
+
+.feature-card .feature-icon,
+.additional-card .card-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.feature-card:hover .feature-icon,
+.additional-card:hover .card-icon {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+}
+
+/* ============================================
+   SERVICE HIGHLIGHTS - TAG STYLING
+   ============================================ */
+.service-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.service-highlights span {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(107, 31, 60, 0.05));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    color: #6B1F3C;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.service-highlights span:hover {
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   PROCESS TIMELINE - PREMIUM STYLING
+   ============================================ */
+.process-timeline {
+    position: relative;
+    padding: 3rem 0;
+}
+
+.process-step {
+    position: relative;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: var(--premium-gradient-1);
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.process-step:hover::before {
+    opacity: 1;
+}
+
+.process-step:hover {
+    transform: translateX(15px);
+    box-shadow: 0 15px 40px rgba(107, 31, 60, 0.25);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    transition: all 0.4s ease;
+}
+
+.process-step:hover .step-number {
+    transform: scale(1.05);
+}
+
+.step-content h3 {
+    color: #2C3E5F;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.step-content p {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ============================================
+   ABOUT PAGE - HERO ENHANCEMENT
+   ============================================ */
+.about-hero {
+    position: relative;
+    background: linear-gradient(135deg, #2C3E5F 0%, #6B1F3C 100%);
+    padding: 10rem 0 6rem;
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.about-hero .hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #8B2F5C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   ABOUT PAGE - STATS PREMIUM CARDS
+   ============================================ */
+.stats-grid .stat-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    backdrop-filter: blur(10px);
+}
+
+.stats-grid .stat-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--premium-gradient-1);
+    border-radius: 24px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.stats-grid .stat-card:hover::before {
+    opacity: 1;
+}
+
+.stats-grid .stat-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--premium-shadow);
+}
+
+.stats-grid .stat-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    margin: 0 auto 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.stats-grid .stat-card:hover .stat-icon {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+}
+
+/* ============================================
+   CONTACT PAGE - FORM ENHANCEMENT
+   ============================================ */
+.contact-form {
+    background: #FFFFFF;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.contact-form:hover {
+    box-shadow: 0 20px 60px rgba(107, 31, 60, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2C3E5F;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #2C3E5F;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #8B2F5C;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-submit-btn {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, #6B1F3C 0%, #8B2F5C 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease;
+}
+
+.form-submit-btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.form-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(107, 31, 60, 0.4);
+}
+
+/* ============================================
+   CONTACT CARDS - PREMIUM STYLING
+   ============================================ */
+.contact-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--premium-gradient-1);
+    border-radius: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--premium-shadow);
+}
+
+.contact-card .contact-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #FFFFFF;
+    margin: 0 auto 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+}
+
+/* ============================================
+   PARTNER LOGOS - PREMIUM ENHANCEMENT
+   ============================================ */
+.technology-partners,
+.partner-section {
+    margin-top: 4rem;
+}
+
+.technology-partners h4,
+.partner-section h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2C3E5F;
+    margin-bottom: 2rem;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.partner-badge {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(107, 31, 60, 0.05));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 20px;
+    color: #6B1F3C;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.partner-badge:hover {
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   SECURITY LAYERS - SPECIAL STYLING
+   ============================================ */
+.security-layer {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.security-layer:hover {
+    transform: translateX(10px);
+    border-color: #8B2F5C;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+}
+
+.security-layer i {
+    font-size: 2.5rem;
+    color: #8B2F5C;
+    margin-bottom: 1rem;
+    transition: all 0.4s ease;
+}
+
+.security-layer:hover i {
+    transform: scale(1.05);
+    color: #6B1F3C;
+}
+
+/* ============================================
+   ARCHITECTURE DIAGRAM - LAYERS
+   ============================================ */
+.arch-layer {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.arch-layer:hover {
+    transform: scale(1.02);
+    border-color: #8B2F5C;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.arch-layer i {
+    font-size: 3rem;
+    color: #8B2F5C;
+    margin-bottom: 1rem;
+}
+
+.arch-layer h4 {
+    color: #2C3E5F;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ============================================
+   UNIFIED COMMUNICATIONS - TEXT VISIBILITY FIX
+   ============================================ */
+#communications .comm-feature h4 {
+    color: #2C3E5F;
+    font-weight: 700;
+}
+
+#communications .comm-feature p {
+    color: #666;
+}
+
+/* ============================================
+   MANAGED SERVICES - TEXT VISIBILITY FIX
+   ============================================ */
+#managed-services .feature-card h4 {
+    color: #2C3E5F;
+    font-weight: 700;
+}
+
+#managed-services .feature-card p {
+    color: #666;
+}
+
+#managed-services .service-description h3 {
+    color: #2C3E5F;
+}
+
+#managed-services .service-description p {
+    color: #666;
+}
+
+#managed-services .key-benefits h4 {
+    color: #8B2F5C;
+}
+
+#managed-services .key-benefits li {
+    color: #444;
+}
+
+/* ============================================
+   MANAGED SERVICES - INTERACTIVE LAYOUT
+   ============================================ */
+.managed-services-container,
+.network-services-container,
+.datacenter-services-container,
+.cybersecurity-services-container {
+    max-width: 1200px;
+    margin: 4rem auto;
+}
+
+.main-service-card {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.98));
+    border: 1px solid rgba(139, 47, 92, 0.2);
+    border-radius: 24px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.main-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(107, 31, 60, 0.25);
+    border-color: rgba(139, 47, 92, 0.4);
+}
+
+.main-service-card .feature-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    font-size: 3rem;
+}
+
+.main-service-card h3 {
+    font-size: 2rem;
+    color: #2C3E5F;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.main-service-card p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.expand-services-btn {
+    background: linear-gradient(135deg, #6B1F3C, #8B2F5C);
+    color: #FFFFFF;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(107, 31, 60, 0.3);
+}
+
+.expand-services-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(107, 31, 60, 0.4);
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+}
+
+.expand-services-btn i {
+    transition: transform 0.3s ease;
+}
+
+.main-service-card.expanded .expand-services-btn i {
+    transform: rotate(180deg);
+}
+
+.sub-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sub-services-grid.revealed {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: 2rem;
+}
+
+.sub-service-card {
+    padding: 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.95));
+    border: 1px solid rgba(139, 47, 92, 0.15);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.sub-services-grid.revealed .sub-service-card {
+    animation: slideUpFadeIn 0.6s ease forwards;
+}
+
+.sub-services-grid.revealed .sub-service-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.sub-services-grid.revealed .sub-service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.sub-services-grid.revealed .sub-service-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.sub-services-grid.revealed .sub-service-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+@keyframes slideUpFadeIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.sub-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(107, 31, 60, 0.2);
+    border-color: rgba(139, 47, 92, 0.3);
+}
+
+.sub-service-card .feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+}
+
+.sub-service-card h4 {
+    font-size: 1.3rem;
+    color: #2C3E5F;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.sub-service-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ============================================
+   SCROLL STACKING CARDS EFFECT
+   ============================================ */
+.additional-services {
+    position: relative;
+    padding: 8rem 0;
+}
+
+.stack-cards-container {
+    position: relative;
+    margin-top: 4rem;
+    padding-bottom: 500vh; /* Much more scroll space - each card gets full attention */
+}
+
+.stack-card {
+    position: sticky;
+    top: 100px;
+    margin-bottom: 2rem;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center top;
+}
+
+.stack-card[data-stack-index="0"] {
+    top: 100px;
+    z-index: 5;
+}
+
+.stack-card[data-stack-index="1"] {
+    top: 110px;
+    z-index: 4;
+}
+
+.stack-card[data-stack-index="2"] {
+    top: 120px;
+    z-index: 3;
+}
+
+.stack-card[data-stack-index="3"] {
+    top: 130px;
+    z-index: 2;
+}
+
+.stack-card[data-stack-index="4"] {
+    top: 140px;
+    z-index: 1;
+}
+
+/* Scaling effect as cards stack */
+.stack-card.stacked {
+    transform: scale(0.95);
+    opacity: 0.7;
+    filter: blur(1px);
+}
+
+.stack-card.fully-stacked {
+    transform: scale(0.85);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Active card (current in view) */
+.stack-card.active {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+    box-shadow: 0 25px 60px rgba(107, 31, 60, 0.25);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .stack-card {
+        top: 80px;
+    }
+    
+    .stack-card[data-stack-index="0"] {
+        top: 80px;
+    }
+    
+    .stack-card[data-stack-index="1"] {
+        top: 85px;
+    }
+    
+    .stack-card[data-stack-index="2"] {
+        top: 90px;
+    }
+    
+    .stack-card[data-stack-index="3"] {
+        top: 95px;
+    }
+    
+    .stack-card[data-stack-index="4"] {
+        top: 100px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .services-hero .hero-title,
+    .about-hero .hero-title {
+        font-size: 2.75rem;
+    }
+    
+    .service-detail .service-title {
+        font-size: 2.25rem;
+    }
+    
+    .service-nav-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero .hero-title,
+    .about-hero .hero-title {
+        font-size: 2rem;
+    }
+    
+    .service-detail .service-title {
+        font-size: 1.75rem;
+    }
+    
+    .service-detail .service-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .service-nav-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .process-step {
+        flex-direction: column;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero,
+    .about-hero {
+        padding: 7rem 0 4rem;
+    }
+    
+    .service-nav-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+.feature-card,
+.additional-card,
+.contact-card,
+.process-step,
+.security-layer,
+.arch-layer {
+    will-change: transform;
+}
+
+/* Reduce animations on low-power devices */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

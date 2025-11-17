@@ -1,0 +1,168 @@
+/* ================================
+   SCROLLBAR REMOVAL FIXES
+   ================================ */
+
+/* Ensure html and body don't have scrollbars on sections */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Hide scrollbars globally while maintaining scroll functionality */
+* {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Ensure sections don't create their own scrollbars */
+section {
+    overflow-x: hidden;
+}
+
+/* Specific fixes for containers that might show scrollbars */
+.container {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Ensure modals and overlays don't show scrollbars unnecessarily */
+.modal-overlay,
+.mobile-menu-overlay {
+    overflow-x: hidden;
+}
+
+/* ================================
+   MOBILE HERO SECTION WHITE BOX FIX
+   ================================ */
+
+/* Hide scroll indicator on mobile to prevent white box */
+@media (max-width: 768px) {
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    /* Ensure hero stats don't show as white boxes */
+    .hero-stats {
+        background: transparent !important;
+    }
+    
+    /* Ensure no white boxes in hero section */
+    .hero .stat,
+    .hero-actions,
+    .hero-text {
+        background: transparent !important;
+    }
+}
+
+/* ================================
+   SERVICES SECTION COMPACT STYLING
+   ================================ */
+
+/* Make service cards more compact */
+.service-card.primary {
+    padding: 1.5rem !important;
+}
+
+.service-card.primary .card-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.service-card.primary .card-description {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.5 !important;
+}
+
+.service-card.primary .card-features ul {
+    margin-bottom: 1rem !important;
+}
+
+.service-card.primary .card-features li {
+    font-size: 0.85rem !important;
+    padding: 0.3rem 0 !important;
+}
+
+.service-card.secondary {
+    padding: 1.25rem !important;
+}
+
+.service-card.secondary .card-title {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.service-card.secondary .card-description {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+}
+
+/* ================================
+   NAVBAR MEGA MENU FIX
+   ================================ */
+
+/* Fix mega menu background - solid white for proper visibility */
+.mega-menu {
+    background: #FFFFFF !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* Ensure mega menu is always properly styled on mobile */
+@media (max-width: 768px) {
+    .mega-menu {
+        background: #FFFFFF !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .mega-menu-highlight {
+        background: linear-gradient(135deg, #6B1F3C 0%, #2C3E5F 100%) !important;
+    }
+    
+    .mega-menu-highlight h4,
+    .mega-menu-highlight h5,
+    .mega-menu-highlight p {
+        color: #FFFFFF !important;
+    }
+    
+    /* Hide mega menu on mobile - use mobile menu instead */
+    .dropdown .mega-menu {
+        display: none !important;
+    }
+}
+
+/* ================================
+   TIMELINE ALIGNMENT FIX (ABOUT PAGE)
+   ================================ */
+
+/* Fix timeline dots alignment with line */
+.story-timeline::before {
+    left: 20px !important;
+}
+
+.timeline-item::before {
+    left: 11px !important;
+}
+
+/* Mobile responsive timeline */
+@media (max-width: 768px) {
+    .story-timeline::before {
+        left: 15px !important;
+    }
+    
+    .timeline-item {
+        padding-left: 45px !important;
+    }
+    
+    .timeline-item::before {
+        left: 6px !important;
+        width: 18px !important;
+        height: 18px !important;
+    }
+}

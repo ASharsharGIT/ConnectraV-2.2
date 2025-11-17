@@ -1,0 +1,407 @@
+/* ============================================
+   PROFESSIONAL BUTTON STYLES
+   Subtle, refined hover effects for enterprise feel
+   ============================================ */
+
+/* Override excessive animations from other files */
+.cta-button,
+.tech-button,
+button,
+.btn,
+input[type="submit"],
+input[type="button"] {
+    /* Reset excessive transforms */
+    transition: all 0.3s ease !important;
+}
+
+/* ============================================
+   PRIMARY BUTTONS - Subtle Professional Hover
+   ============================================ */
+.cta-button.primary,
+.tech-button {
+    background: linear-gradient(135deg, var(--tech-primary, #6B1F3C), var(--tech-secondary, #2C3E5F));
+    border: 2px solid var(--tech-accent, #D4AF37);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+.cta-button.primary:hover,
+.tech-button:hover {
+    /* Subtle lift - ONLY 3px */
+    transform: translateY(-3px) !important;
+    
+    /* Subtle glow - not excessive */
+    box-shadow: 0 6px 20px rgba(107, 31, 60, 0.3),
+                0 0 15px rgba(212, 175, 55, 0.2) !important;
+    
+    /* Slight border color change */
+    border-color: rgba(212, 175, 55, 0.8);
+}
+
+.cta-button.primary:active,
+.tech-button:active {
+    transform: translateY(-1px) !important;
+}
+
+/* Remove excessive ripple and other effects */
+.cta-button.primary::before,
+.cta-button.primary::after,
+.tech-button::before,
+.tech-button::after {
+    display: none !important;
+}
+
+/* ============================================
+   SECONDARY BUTTONS - Minimal Hover
+   ============================================ */
+.cta-button.secondary {
+    background: transparent;
+    border: 2px solid var(--tech-accent, #D4AF37);
+    color: var(--tech-accent, #D4AF37);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease !important;
+}
+
+.cta-button.secondary:hover {
+    background: rgba(212, 175, 55, 0.1);
+    /* NO transform - just background change */
+    transform: none !important;
+    border-color: rgba(212, 175, 55, 1);
+}
+
+/* Secondary variant on dark backgrounds */
+.cta-button.secondary.on-dark {
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.08);
+}
+.cta-button.secondary.on-dark:hover {
+    background: rgba(255,255,255,0.16);
+    border-color: rgba(255,255,255,0.75);
+    color: #ffffff;
+}
+
+/* Accessible focus rings (light & dark contexts) */
+.cta-button:focus-visible,
+.nav-link:focus-visible,
+.card-link:focus-visible {
+    outline: 2px solid var(--accent-gold, #D4AF37);
+    outline-offset: 3px;
+}
+.on-dark .cta-button:focus-visible,
+.on-dark .nav-link:focus-visible,
+.on-dark .card-link:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Respect dynamic theme accent for outlines */
+body[data-theme] .cta-button:focus-visible,
+body[data-theme] .nav-link:focus-visible,
+body[data-theme] .card-link:focus-visible {
+    outline-color: var(--accent-current);
+}
+
+.cta-button.secondary:active {
+    background: rgba(212, 175, 55, 0.2);
+}
+
+/* ============================================
+   TERTIARY BUTTONS - Subtle Underline
+   ============================================ */
+.cta-button.tertiary {
+    background: transparent;
+    border: none;
+    color: var(--tech-accent, #D4AF37);
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease !important;
+}
+
+.cta-button.tertiary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--tech-accent, #D4AF37);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.cta-button.tertiary:hover::after {
+    width: 80%;
+}
+
+.cta-button.tertiary:hover {
+    /* NO transform */
+    transform: none !important;
+    color: rgba(212, 175, 55, 1);
+}
+
+/* ============================================
+   NAVIGATION LINKS - Professional Minimal
+   ============================================ */
+.nav-link {
+    transition: color 0.3s ease !important;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--tech-accent, #D4AF37);
+    /* NO transform */
+    transform: none !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--tech-accent, #D4AF37);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   SERVICE CARDS - Gentle Lift Only
+   ============================================ */
+.service-card,
+.holo-card,
+.stat-3d-card {
+    transition: all 0.4s ease !important;
+}
+
+.service-card:hover,
+.holo-card:hover,
+.stat-3d-card:hover {
+    /* Gentle lift - ONLY 5px */
+    transform: translateY(-5px) !important;
+    
+    /* Subtle shadow */
+    box-shadow: 0 10px 30px rgba(107, 31, 60, 0.2) !important;
+}
+
+/* Remove excessive 3D rotations */
+.service-card:hover,
+.holo-card:hover {
+    /* NO 3D rotation transforms */
+    transform: translateY(-5px) !important;
+}
+
+/* ============================================
+   FORM BUTTONS - Professional Submit
+   ============================================ */
+input[type="submit"],
+input[type="button"],
+button[type="submit"] {
+    background: linear-gradient(135deg, #6B1F3C, #2C3E5F);
+    border: 2px solid #D4AF37;
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+}
+
+input[type="submit"]:hover,
+input[type="button"]:hover,
+button[type="submit"]:hover {
+    /* Minimal lift */
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(107, 31, 60, 0.3) !important;
+}
+
+input[type="submit"]:active,
+input[type="button"]:active,
+button[type="submit"]:active {
+    transform: translateY(0) !important;
+}
+
+/* ============================================
+   ICON BUTTONS - Minimal Scale
+   ============================================ */
+.icon-button,
+.social-link {
+    transition: all 0.3s ease !important;
+}
+
+.icon-button:hover,
+.social-link:hover {
+    /* Small scale only */
+    transform: scale(1.1) !important;
+    color: var(--tech-accent, #D4AF37);
+}
+
+/* ============================================
+   REMOVE EXCESSIVE MAGNETIC EFFECTS
+   ============================================ */
+.magnetic-button,
+[data-magnetic="true"] {
+    /* Disable magnetic following */
+    pointer-events: auto !important;
+}
+
+.magnetic-button:hover,
+[data-magnetic="true"]:hover {
+    /* NO complex transforms */
+    transform: translateY(-3px) !important;
+}
+
+/* ============================================
+   PARTNER LOGO CARDS - Subtle Only
+   ============================================ */
+.partner-logo,
+.partner-slide {
+    transition: all 0.3s ease !important;
+}
+
+.partner-logo:hover,
+.partner-slide:hover {
+    /* Minimal scale */
+    transform: scale(1.05) !important;
+    opacity: 1 !important;
+}
+
+/* ============================================
+   VALUE PROPOSITION CARDS - Gentle
+   ============================================ */
+.value-prop,
+.feature-card {
+    transition: all 0.3s ease !important;
+}
+
+.value-prop:hover,
+.feature-card:hover {
+    /* Gentle lift only */
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(107, 31, 60, 0.15) !important;
+}
+
+/* ============================================
+   DISABLE EXCESSIVE ICON ROTATIONS
+   ============================================ */
+.icon-tech {
+    transition: transform 0.3s ease !important;
+}
+
+.holo-card:hover .icon-tech,
+.stat-3d-card:hover .icon-tech,
+.data-panel:hover .icon-tech {
+    /* NO 360deg rotation - just slight scale */
+    transform: scale(1.1) !important;
+}
+
+/* Remove rotating border */
+.icon-tech::before {
+    display: none !important;
+}
+
+/* ============================================
+   LOCATION CARDS - Professional Minimal
+   ============================================ */
+.location-card {
+    transition: all 0.3s ease !important;
+}
+
+.location-card:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(107, 31, 60, 0.15) !important;
+}
+
+/* ============================================
+   TIMELINE ITEMS - Subtle
+   ============================================ */
+.timeline-item {
+    transition: all 0.3s ease !important;
+}
+
+.timeline-item:hover {
+    transform: translateX(5px) !important;
+}
+
+/* ============================================
+   BACK TO TOP BUTTON - Minimal
+   ============================================ */
+.back-to-top {
+    transition: all 0.3s ease !important;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px) !important;
+    background: var(--tech-accent, #D4AF37) !important;
+}
+
+/* ============================================
+   ENSURE NO EXCESSIVE ANIMATIONS
+   ============================================ */
+* {
+    /* Limit max transform to prevent wild movements */
+    will-change: auto !important;
+}
+
+/* ============================================
+   PROFESSIONAL FOCUS STATES
+   ============================================ */
+.cta-button:focus,
+.nav-link:focus,
+input:focus,
+button:focus {
+    outline: 2px solid var(--tech-accent, #D4AF37);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   RESPONSIVE - Even More Subtle on Mobile
+   ============================================ */
+@media (max-width: 768px) {
+    .cta-button:hover,
+    .tech-button:hover,
+    .service-card:hover,
+    .holo-card:hover {
+        /* NO hover effects on mobile - tap only */
+        transform: none !important;
+    }
+    
+    .cta-button:active,
+    .tech-button:active {
+        /* Just slight scale on tap */
+        transform: scale(0.98) !important;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY - Respect Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .cta-button,
+    .tech-button,
+    .service-card,
+    .holo-card,
+    .nav-link,
+    * {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}

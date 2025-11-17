@@ -1,0 +1,490 @@
+/* ================================
+   CRITICAL MOBILE FIXES
+   Footer & Hero Video - November 17, 2025
+   ================================ */
+
+/* ========== GLOBAL: HIDE LEGAL LINKS ========== */
+/* Hide Privacy Policy, Terms of Service, Sitemap on ALL screens */
+.legal-links {
+    display: none !important;
+}
+
+/* ========== DESKTOP: REMOVE PURPLE GRADIENT ========== */
+/* Override the purple gradient from fixes-professional-updated.css */
+/* Desktop should have minimal overlay to show the video clearly */
+
+/* Default for all screens - very light overlay */
+.video-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.08) 0%,
+        rgba(0, 0, 0, 0.05) 60%,
+        rgba(0, 0, 0, 0.03) 100%
+    ) !important;
+}
+
+/* Desktop specific - ensure it stays light */
+@media (min-width: 769px) {
+    .video-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.05) 60%,
+            rgba(0, 0, 0, 0.03) 100%
+        ) !important;
+    }
+}
+
+/* ========== ROOT CAUSE #1: FOOTER INLINE STYLES OVERRIDE ========== */
+/* The footer has inline styles with fixed grid layouts that break on mobile */
+/* We need to use !important to override them */
+
+@media (max-width: 768px) {
+    /* Force footer to be responsive */
+    .footer {
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important;
+    }
+    
+    .footer .container {
+        padding: 0.5rem 1rem 0 !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    /* Override inline style: grid-template-columns: 1.5fr 2.5fr */
+    .footer-main {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.4rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    /* Override inline style: grid-template-columns: repeat(4, 1fr) */
+    .footer-columns-wrapper {
+        display: block !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.4rem !important;
+    }
+    
+    /* Make all footer columns stack vertically */
+    .footer-column {
+        width: 100% !important;
+        margin-bottom: 0.4rem !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+    
+    .footer-brand {
+        width: 100% !important;
+        padding: 0 !important;
+        margin-bottom: 0.4rem !important;
+        text-align: center !important;
+    }
+    
+    /* Center footer logo on mobile */
+    .footer-logo {
+        display: flex !important;
+        justify-content: center !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .footer-logo-img {
+        max-width: 100px !important;
+        height: auto !important;
+    }
+    
+    /* Center footer description */
+    .footer-description {
+        text-align: center !important;
+        font-size: 0.8rem !important;
+        line-height: 1.5 !important;
+        margin: 0 auto !important;
+        max-width: 90% !important;
+    }
+    
+    /* Center trust badge */
+    .footer-trust {
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    /* Center social links */
+    .social-links {
+        justify-content: center !important;
+        gap: 0.75rem !important;
+    }
+    
+    /* Footer column headings - CENTERED */
+    .footer-column h4,
+    .footer h4 {
+        font-size: 0.95rem !important;
+        margin-bottom: 0.3rem !important;
+        padding-bottom: 0.15rem !important;
+        text-align: center !important;
+    }
+    
+    /* Footer links - CENTERED */
+    .footer-column ul,
+    .footer ul {
+        padding: 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
+        text-align: center !important;
+    }
+    
+    .footer-column li,
+    .footer li {
+        margin-bottom: 0.3rem !important;
+        text-align: center !important;
+    }
+    
+    .footer-column a,
+    .footer a {
+        font-size: 0.8rem !important;
+        display: inline-block !important;
+        padding: 0.15rem 0 !important;
+        text-align: center !important;
+    }
+    
+    /* Contact info in footer - CENTERED */
+    .contact-info {
+        gap: 0.3rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .contact-item {
+        font-size: 0.8rem !important;
+        gap: 0.3rem !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    /* Footer bottom section */
+    .footer-bottom {
+        padding: 0.5rem 0 0.4rem !important;
+        border-top: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    
+    .footer-legal {
+        flex-direction: column !important;
+        gap: 0.3rem !important;
+        text-align: center !important;
+    }
+    
+    .footer-legal p {
+        font-size: 0.65rem !important;
+        line-height: 1.3 !important;
+        margin: 0 !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .footer .container {
+        padding: 0.3rem 1rem 0.3rem !important;
+    }
+    
+    .footer-logo-img {
+        max-width: 80px !important;
+    }
+
+    .footer-description {
+        font-size: 0.7rem !important;
+    }
+
+    .footer h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .footer a,
+    .footer-column a {
+        font-size: 0.75rem !important;
+    }
+
+    .social-link {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .trust-badge {
+        padding: 0.3rem 0.6rem !important;
+        font-size: 0.7rem !important;
+    }
+    
+    .footer-column {
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .footer-bottom {
+        padding: 0.3rem 0 0.25rem !important;
+    }
+}/* ========== ROOT CAUSE #2: HERO VIDEO NOT FULL SCREEN ON MOBILE ========== */
+
+/* The hero video needs proper positioning and sizing on mobile */
+.hero-video {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: -1 !important;
+}
+
+/* Desktop: Very light overlay (almost transparent) - REMOVED, see top of file */
+
+@media (max-width: 768px) {
+    /* Ensure hero takes full viewport */
+    .hero {
+        min-height: 100vh !important;
+        min-height: 100dvh !important; /* Dynamic viewport height for mobile */
+        position: relative !important;
+        overflow: hidden !important;
+    }
+    
+    /* Video must cover entire hero on mobile */
+    .hero-video {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: cover !important;
+        z-index: 0 !important;
+    }
+    
+    /* Ensure video covers portrait mode */
+    @supports (aspect-ratio: 16 / 9) {
+        .hero-video {
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: cover !important;
+        }
+    }
+    
+    /* Stronger overlay for text readability on mobile */
+    .video-overlay {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.30) 0%,
+            rgba(0, 0, 0, 0.25) 50%,
+            rgba(0, 0, 0, 0.20) 100%
+        ) !important;
+        z-index: 1 !important;
+    }
+    
+    /* Hero content above video */
+    .hero-content {
+        position: relative !important;
+        z-index: 3 !important;
+        padding: 6rem 1rem 4rem !important;
+    }
+    
+    /* Ensure stats are visible on mobile */
+    .hero-stats {
+        position: relative !important;
+        z-index: 4 !important;
+        color: white !important;
+    }
+    
+    .hero-stats .stat {
+        position: relative !important;
+        z-index: 4 !important;
+    }
+    
+    .hero-stats .stat-number {
+        color: var(--accent-gold) !important;
+        position: relative !important;
+        z-index: 4 !important;
+    }
+    
+    .hero-stats .stat-label {
+        color: white !important;
+        position: relative !important;
+        z-index: 4 !important;
+    }
+    
+    /* Hero background elements */
+    .hero-background {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        z-index: 0 !important;
+    }
+}
+
+/* Portrait orientation specific fixes */
+@media (max-width: 768px) and (orientation: portrait) {
+    .hero-video {
+        width: auto !important;
+        height: 100% !important;
+        min-width: 100vw !important;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 812px) and (orientation: landscape) {
+    .hero {
+        min-height: 100vh !important;
+    }
+    
+    .hero-video {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 100vh !important;
+    }
+    
+    .hero-content {
+        padding: 3rem 1rem !important;
+    }
+}
+
+/* Very small screens (iPhone SE, small Android) */
+@media (max-width: 375px) {
+    .footer .container {
+        padding: 1.25rem 0.75rem 0.5rem !important;
+    }
+
+    .footer-column {
+        margin-bottom: 1rem !important;
+    }
+
+    .footer-bottom {
+        padding: 0.5rem 0 !important;
+    }
+    
+    .footer-logo-img {
+        max-width: 80px !important;
+    }
+    
+    .footer h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+}/* ========== ADDITIONAL FIXES ========== */
+
+/* Prevent horizontal scroll in footer */
+@media (max-width: 768px) {
+    .footer,
+    .footer *,
+    .footer-content,
+    .footer-main,
+    .footer-columns-wrapper {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Ensure no element causes overflow */
+    .footer img,
+    .footer-logo-img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* Fix for iOS Safari video rendering */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+        .hero-video {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            transform: none !important;
+            width: 100vw !important;
+            height: 100vh !important;
+        }
+        
+        .hero {
+            position: relative !important;
+        }
+        
+        .hero-content {
+            position: relative !important;
+            z-index: 10 !important;
+        }
+    }
+}
+
+/* Fix video aspect ratio on tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-video {
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+
+/* Ensure hero has minimum content space */
+@media (max-width: 768px) {
+    .hero-text {
+        padding: 2rem 0 !important;
+        min-height: 60vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+}
+
+/* Footer safe area for iPhone X and newer */
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .footer {
+            padding-bottom: max(1rem, env(safe-area-inset-bottom)) !important;
+        }
+        
+        .footer .container {
+            padding-left: max(1rem, env(safe-area-inset-left)) !important;
+            padding-right: max(1rem, env(safe-area-inset-right)) !important;
+        }
+    }
+}
+
+/* Print styles - hide video */
+@media print {
+    .hero-video {
+        display: none !important;
+    }
+    
+    .video-overlay {
+        display: none !important;
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, #2C3E5F 0%, #6B1F3C 100%) !important;
+        min-height: auto !important;
+        page-break-inside: avoid !important;
+    }
+}
+
+/* High contrast mode - ensure visibility */
+@media (prefers-contrast: high) {
+    @media (max-width: 768px) {
+        .video-overlay {
+            background: rgba(0, 0, 0, 0.6) !important;
+        }
+        
+        .hero-content {
+            background: rgba(0, 0, 0, 0.3) !important;
+            padding: 2rem !important;
+            border-radius: 12px !important;
+        }
+    }
+}

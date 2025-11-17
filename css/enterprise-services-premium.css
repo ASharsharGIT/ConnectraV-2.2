@@ -1,0 +1,595 @@
+/* ============================================
+   CONNECTRA - ENTERPRISE ICT SOLUTIONS PREMIUM
+   Ultra-Premium Interactive Enhancements
+   Author: Connectra Design Team
+   Version: 1.0
+   ============================================ */
+
+:root {
+    --premium-glow-primary: rgba(139, 47, 92, 0.8);
+    --premium-glow-secondary: rgba(107, 31, 60, 0.6);
+    --premium-gradient-1: linear-gradient(135deg, #6B1F3C 0%, #8B2F5C 50%, #2C3E5F 100%);
+    --premium-gradient-2: linear-gradient(45deg, #8B2F5C, #6B1F3C, #8B2F5C);
+    --premium-gradient-3: linear-gradient(135deg, rgba(139, 47, 92, 0.1), rgba(107, 31, 60, 0.1));
+    --premium-shadow: 0 25px 60px -15px rgba(107, 31, 60, 0.35), 
+                      0 15px 35px -10px rgba(139, 47, 92, 0.25),
+                      0 0 50px -10px rgba(139, 47, 92, 0.15);
+}
+
+/* ============================================
+   ENTERPRISE ICT SOLUTIONS SECTION STYLING
+   ============================================ */
+.services {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #F8F9FA 0%, #FFFFFF 50%, #F5F5F7 100%);
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(107, 31, 60, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.services .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   PREMIUM SECTION HEADER ENHANCEMENTS
+   ============================================ */
+.services .section-header {
+    position: relative;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+.services .section-subtitle {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: var(--premium-gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: premium-gradient-flow 3s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+.services .section-subtitle::before,
+.services .section-subtitle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.services .section-subtitle::before {
+    right: calc(100% + 20px);
+}
+
+.services .section-subtitle::after {
+    left: calc(100% + 20px);
+}
+
+@keyframes premium-gradient-flow {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+.services .section-title {
+    position: relative;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #2C3E5F 0%, #6B1F3C 50%, #8B2F5C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 4px 12px rgba(107, 31, 60, 0.15));
+    animation: premium-title-glow 4s ease-in-out infinite;
+}
+
+@keyframes premium-title-glow {
+    0%, 100% {
+        filter: drop-shadow(0 4px 12px rgba(107, 31, 60, 0.15));
+    }
+    50% {
+        filter: drop-shadow(0 6px 20px rgba(139, 47, 92, 0.25));
+    }
+}
+
+.services .section-description {
+    font-size: 1.25rem;
+    color: #5A5A5A;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ============================================
+   PREMIUM SERVICE CARDS WITH ULTRA-MODERN EFFECTS
+   ============================================ */
+.services .service-card {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 24px;
+    overflow: visible;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Animated Gradient Border Effect */
+.services .service-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: var(--premium-gradient-1);
+    border-radius: 24px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+    animation: premium-border-rotate 8s linear infinite;
+    background-size: 300% 300%;
+}
+
+@keyframes premium-border-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.services .service-card:hover::before {
+    opacity: 1;
+}
+
+/* Premium Glow Effect on Hover */
+.services .service-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0%;
+    height: 0%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.services .service-card:hover::after {
+    width: 120%;
+    height: 120%;
+    opacity: 1;
+}
+
+/* Enhanced Hover Effect with 3D Transform */
+.services .service-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: var(--premium-shadow);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* Premium Primary Card Styling */
+.services .service-card.primary {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 1) 0%, 
+        rgba(248, 249, 250, 1) 100%);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.services .service-card.primary:hover {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 1) 0%, 
+        rgba(255, 253, 250, 1) 100%);
+}
+
+/* Premium Secondary Card Styling */
+.services .service-card.secondary {
+    background: #FFFFFF;
+    border: 1px solid rgba(44, 62, 95, 0.1);
+}
+
+.services .service-card.secondary:hover {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFC 100%);
+}
+
+/* ============================================
+   PREMIUM CARD ICON ENHANCEMENTS
+   ============================================ */
+.services .card-icon {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, #6B1F3C 0%, #8B2F4C 100%);
+    border-radius: 20px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.services .card-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        transparent 70%);
+    animation: premium-icon-shine 3s ease-in-out infinite;
+}
+
+@keyframes premium-icon-shine {
+    0% {
+        transform: rotate(0deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(360deg) translate(-50%, -50%);
+    }
+}
+
+.services .card-icon::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+    border-radius: 17px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.services .service-card:hover .card-icon {
+    transform: scale(1.05);
+    box-shadow: 
+        0 15px 40px rgba(107, 31, 60, 0.35),
+        0 0 30px rgba(139, 47, 92, 0.3),
+        inset 0 -3px 15px rgba(139, 47, 92, 0.2);
+    background: linear-gradient(135deg, #8B2F5C 0%, #6B1F3C 100%);
+}
+
+.services .service-card:hover .card-icon::after {
+    opacity: 1;
+}
+
+.services .card-icon i {
+    position: relative;
+    z-index: 1;
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.services .service-card:hover .card-icon i {
+    transform: scale(1.03);
+    filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.4));
+}
+
+/* ============================================
+   PREMIUM CARD CONTENT STYLING
+   ============================================ */
+.services .card-title {
+    position: relative;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2C3E5F;
+    margin-bottom: 1rem;
+    transition: all 0.4s ease;
+}
+
+.services .service-card:hover .card-title {
+    color: #6B1F3C;
+    transform: translateX(5px);
+}
+
+.services .card-description {
+    color: #5A5A5A;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* ============================================
+   PREMIUM FEATURES LIST STYLING
+   ============================================ */
+.services .card-features li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+    color: #4A5568;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.services .card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    color: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.75rem;
+    box-shadow: 0 2px 8px rgba(139, 47, 92, 0.3);
+    transition: all 0.3s ease;
+}
+
+.services .service-card:hover .card-features li::before {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(139, 47, 92, 0.5);
+}
+
+.services .service-card:hover .card-features li {
+    color: #2C3E5F;
+    transform: translateX(5px);
+}
+
+/* ============================================
+   PREMIUM CARD LINK STYLING
+   ============================================ */
+.services .card-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6B1F3C;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(107, 31, 60, 0.05));
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+}
+
+.services .card-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.2), transparent);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+}
+
+.services .card-link:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.services .card-link:hover {
+    color: #FFFFFF;
+    background: linear-gradient(135deg, #6B1F3C 0%, #8B2F5C 100%);
+    border-color: #8B2F5C;
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(107, 31, 60, 0.3);
+}
+
+.services .card-link i {
+    transition: transform 0.4s ease;
+}
+
+.services .card-link:hover i {
+    transform: translateX(5px);
+}
+
+/* ============================================
+   FLOATING PARTICLE EFFECT ON HOVER
+   ============================================ */
+.services .service-card {
+    --particles: 8;
+}
+
+@keyframes particle-float {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1);
+    }
+}
+
+/* ============================================
+   PREMIUM GRID ENHANCEMENTS
+   ============================================ */
+.services .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+}
+
+/* Stagger Animation for Cards */
+.services .service-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.services .service-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.services .service-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.services .service-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.services .service-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.services .service-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* ============================================
+   MAGNETIC CURSOR EFFECT PREPARATION
+   ============================================ */
+.services .service-card {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.services .service-card.magnetic-active {
+    z-index: 10;
+}
+
+/* ============================================
+   3D TILT EFFECT SUPPORT
+   ============================================ */
+.services .card-content {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+}
+
+.services .service-card .card-icon,
+.services .service-card .card-title,
+.services .service-card .card-description {
+    transform: translateZ(20px);
+}
+
+/* ============================================
+   PREMIUM RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .services .section-title {
+        font-size: 2.75rem;
+    }
+    
+    .services .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .services .section-title {
+        font-size: 2.25rem;
+    }
+    
+    .services .section-subtitle::before,
+    .services .section-subtitle::after {
+        display: none;
+    }
+    
+    .services .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .services .service-card {
+        min-height: auto !important;
+    }
+    
+    .services .card-icon {
+        width: 75px;
+        height: 75px;
+    }
+    
+    .services .card-icon i {
+        font-size: 2rem;
+    }
+    
+    .services .card-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .services .section-title {
+        font-size: 1.85rem;
+    }
+    
+    .services .section-description {
+        font-size: 1.05rem;
+    }
+    
+    .services .card-link {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* ============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================ */
+.services .service-card,
+.services .card-icon,
+.services .card-link {
+    will-change: transform;
+}
+
+/* Reduce animations on low-power devices */
+@media (prefers-reduced-motion: reduce) {
+    .services .service-card,
+    .services .card-icon,
+    .services .card-link,
+    .services .section-title {
+        animation: none;
+        transition-duration: 0.1s;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================ */
+.services .service-card:focus-visible {
+    outline: 3px solid #8B2F5C;
+    outline-offset: 4px;
+}
+
+.services .card-link:focus-visible {
+    outline: 2px solid #6B1F3C;
+    outline-offset: 2px;
+}

@@ -1,0 +1,885 @@
+/* ========================================
+   ADVANCED INTERACTIVITY STYLES
+   Click-triggered animations, modals, accordions, tabs, panels
+   ======================================== */
+
+/* ========================================
+   1. MODAL SYSTEM
+   ======================================== */
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Modal Container */
+.modal-container {
+    background: linear-gradient(135deg, rgba(10, 14, 26, 0.98), rgba(44, 62, 95, 0.98));
+    border-radius: 20px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 3rem;
+    position: relative;
+    transform: scale(0.9) translateY(30px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 
+                0 0 100px rgba(212, 175, 55, 0.1);
+    /* Hide scrollbar while maintaining functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.modal-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #8B2F5C;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: rgba(212, 175, 55, 0.2);
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Modal Header */
+.modal-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.modal-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+}
+
+/* Modal Body */
+.modal-body {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+.modal-body h3 {
+    color: #8B2F5C;
+    margin: 2rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-body ul li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+}
+
+.modal-body ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #8B2F5C;
+    font-weight: bold;
+}
+
+/* ========================================
+   2. EXPANDABLE CARDS SYSTEM
+   ======================================== */
+
+.expandable-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.expandable-card .card-preview {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.expandable-card .card-expanded {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: top;
+}
+
+.expandable-card.expanded .card-preview {
+    opacity: 0.5;
+    transform: translateY(-3px);
+}
+
+.expandable-card.expanded .card-expanded {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.expandable-card .expand-trigger {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    z-index: 5;
+}
+
+.expandable-card .expand-trigger:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+}
+
+.expandable-card.expanded .expand-trigger {
+    transform: rotate(180deg);
+}
+
+/* ========================================
+   3. SLIDE-OUT PANEL SYSTEM
+   ======================================== */
+
+.slide-panel {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 450px;
+    height: 100vh;
+    background: linear-gradient(135deg, rgba(10, 14, 26, 0.98), rgba(44, 62, 95, 0.98));
+    box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    /* Hide scrollbar while maintaining functionality */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.slide-panel::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.slide-panel.active {
+    right: 0;
+}
+
+.slide-panel-header {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.slide-panel-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.2);
+    border: none;
+    color: #8B2F5C;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.slide-panel-close:hover {
+    background: rgba(212, 175, 55, 0.3);
+    transform: rotate(90deg);
+}
+
+.slide-panel-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8B2F5C;
+    margin: 0;
+}
+
+.slide-panel-content {
+    padding: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   4. ACCORDION SYSTEM (Enhanced)
+   ======================================== */
+
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.accordion-item,
+.faq-item {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(44, 62, 95, 0.05));
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover,
+.faq-item:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+.accordion-header,
+.faq-question {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover,
+.faq-question:hover {
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.accordion-title,
+.faq-question h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.accordion-icon,
+.faq-question i {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon,
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+    background: linear-gradient(135deg, #6B1F3C, #8B2F5C);
+}
+
+.accordion-content,
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.accordion-item.active .accordion-content,
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+}
+
+.accordion-body,
+.faq-answer p {
+    padding: 0 1.5rem 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+/* ========================================
+   5. TAB SYSTEM
+   ======================================== */
+
+.tabs-container {
+    margin: 2rem 0;
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+    overflow-x: auto;
+}
+
+.tab-button {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab-button::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8B2F5C, #6B1F3C);
+    transition: width 0.3s ease;
+}
+
+.tab-button:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.tab-button.active {
+    color: #8B2F5C;
+}
+
+.tab-button.active::after {
+    width: 100%;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   6. TOOLTIP SYSTEM
+   ======================================== */
+
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+}
+
+.tooltip-content {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: linear-gradient(135deg, rgba(10, 14, 26, 0.98), rgba(44, 62, 95, 0.98));
+    color: #fff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    min-width: 200px;
+    max-width: 300px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.tooltip-content::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: rgba(10, 14, 26, 0.98);
+}
+
+.tooltip-trigger:hover .tooltip-content,
+.tooltip-trigger.active .tooltip-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ========================================
+   7. FLOATING ACTION BUTTONS
+   ======================================== */
+
+.floating-actions {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 9990;
+}
+
+.fab-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.fab-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6B1F3C, #8B2F5C);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fab-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+}
+
+.fab-button:hover::before {
+    opacity: 1;
+}
+
+.fab-button i {
+    position: relative;
+    z-index: 2;
+}
+
+.fab-label {
+    position: absolute;
+    right: calc(100% + 1rem);
+    background: rgba(10, 14, 26, 0.95);
+    color: #8B2F5C;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 600;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.fab-button:hover .fab-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* ========================================
+   8. COMPARISON TABLE
+   ======================================== */
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.comparison-table th {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(44, 62, 95, 0.2));
+    color: #8B2F5C;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.comparison-table td {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.comparison-table tr:hover {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.comparison-check {
+    color: #4CAF50;
+    font-size: 1.2rem;
+}
+
+.comparison-cross {
+    color: #f44336;
+    font-size: 1.2rem;
+}
+
+/* ========================================
+   9. INTERACTIVE TIMELINE
+   ======================================== */
+
+.interactive-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #8B2F5C, #6B1F3C);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin: 3rem 0;
+    cursor: pointer;
+}
+
+.timeline-point {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #8B2F5C, #6B1F3C);
+    border-radius: 50%;
+    border: 4px solid rgba(10, 14, 26, 1);
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.timeline-item:hover .timeline-point {
+    transform: translateX(-50%) scale(1.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+}
+
+.timeline-content {
+    width: 45%;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(44, 62, 95, 0.1));
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-right: 55%;
+}
+
+.timeline-item:hover .timeline-content {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(44, 62, 95, 0.15));
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+.timeline-year {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #8B2F5C;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 1rem;
+}
+
+.timeline-item.expanded .timeline-details {
+    max-height: 500px;
+}
+
+/* ========================================
+   10. ANIMATED COUNTER (Click to Reveal)
+   ======================================== */
+
+.stat-revealer {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stat-revealer::after {
+    content: 'Click for details';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: rgba(212, 175, 55, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.stat-revealer:hover::after {
+    opacity: 1;
+}
+
+.stat-breakdown {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 1rem;
+}
+
+.stat-revealer.revealed .stat-breakdown {
+    max-height: 300px;
+}
+
+.breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.breakdown-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+}
+
+.breakdown-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8B2F5C, #6B1F3C);
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-revealer.revealed .breakdown-fill {
+    transform: scaleX(1);
+}
+
+/* ========================================
+   11. RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .modal-container {
+        width: 95%;
+        padding: 2rem 1.5rem;
+        max-height: 85vh;
+    }
+    
+    .slide-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .floating-actions {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .fab-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+    
+    .fab-label {
+        display: none;
+    }
+    
+    .timeline-line {
+        left: 20px;
+    }
+    
+    .timeline-point {
+        left: 20px;
+    }
+    
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+        margin-right: 0 !important;
+    }
+    
+    .tab-button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   12. CLICK RIPPLE EFFECT
+   ======================================== */
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, 0.5);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   13. LOADING STATES
+   ======================================== */
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 26, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-radius: inherit;
+    z-index: 100;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(212, 175, 55, 0.2);
+    border-top-color: #8B2F5C;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Responsiveness Test - Connectra</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .test-section h2 {
+            color: #764ba2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .checklist {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .checklist li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        
+        .checkbox.checked {
+            background: #667eea;
+            position: relative;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .device-frame {
+            margin: 2rem auto;
+            border: 3px solid #333;
+            border-radius: 30px;
+            padding: 3rem 1rem 1rem;
+            max-width: 400px;
+            background: white;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .device-frame::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 5px;
+            background: #333;
+            border-radius: 10px;
+        }
+        
+        .device-frame::after {
+            content: 'iPhone 12 (390px)';
+            position: absolute;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .screenshot {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, #6B1F3C, #2C3E5F);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        
+        .status-badge.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-badge.test {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .quick-link {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.75rem;
+            }
+            
+            .test-section {
+                padding: 1rem;
+            }
+            
+            .device-frame {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 Mobile Responsiveness Test Suite</h1>
+        
+        <div class="test-section">
+            <h2>🏠 Homepage (index.html)</h2>
+            <ul class="checklist" id="homepage-tests">
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Rotating hero text displays without overflow</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Hero buttons stack vertically on mobile (< 640px)</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Hero stats: 2 columns tablet, 1 column mobile</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Service cards display in single column</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Mobile menu opens smoothly</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>No horizontal scrolling on any screen size</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h2>📞 Contact Page (contact.html)</h2>
+            <ul class="checklist" id="contact-tests">
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Form inputs don't zoom on focus (16px font)</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Submit button full-width on mobile</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>All inputs have 48px min-height (easy to tap)</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Location cards stack vertically</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>FAQ accordion works on touch devices</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔧 General Mobile Features</h2>
+            <ul class="checklist" id="general-tests">
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>All tap targets minimum 44px × 44px</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Custom cursor hidden on mobile</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Navbar height 70px on mobile</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Footer stacks in single column</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Typography scales smoothly (fluid clamp)</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+                <li>
+                    <div class="checkbox" onclick="toggleCheck(this)"></div>
+                    <span>Landscape orientation works (< 500px height)</span>
+                    <span class="status-badge test">TEST</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="device-frame">
+            <div class="screenshot">
+                Open index.html<br>in mobile view<br>to test
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🎯 Quick Test Instructions</h2>
+            <ol style="padding-left: 2rem; line-height: 2;">
+                <li>Open <strong>index.html</strong> in Chrome/Firefox</li>
+                <li>Press <strong>F12</strong> to open DevTools</li>
+                <li>Click <strong>Toggle device toolbar</strong> (Ctrl+Shift+M)</li>
+                <li>Select device: <strong>iPhone 12</strong> (390px)</li>
+                <li>Scroll through page and check each item</li>
+                <li>Switch to <strong>iPhone SE</strong> (375px) and test again</li>
+                <li>Try <strong>landscape</strong> orientation</li>
+                <li>Test on <strong>iPad</strong> (768px)</li>
+            </ol>
+        </div>
+        
+        <div class="quick-links">
+            <a href="index.html" class="quick-link">🏠 Open Homepage</a>
+            <a href="about.html" class="quick-link">👥 Open About</a>
+            <a href="services.html" class="quick-link">⚙️ Open Services</a>
+            <a href="contact.html" class="quick-link">📞 Open Contact</a>
+        </div>
+        
+        <div style="margin-top: 3rem; padding: 2rem; background: #e7f3ff; border-radius: 12px; border-left: 5px solid #2196F3;">
+            <h3 style="color: #1976D2; margin-bottom: 1rem;">📖 Complete Documentation</h3>
+            <p style="margin-bottom: 1rem; color: #555;">For detailed testing instructions, breakpoints, and troubleshooting:</p>
+            <a href="MOBILE-TESTING-GUIDE.md" style="display: inline-block; padding: 0.75rem 1.5rem; background: #2196F3; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                Read MOBILE-TESTING-GUIDE.md
+            </a>
+        </div>
+        
+        <div id="progress" style="margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 12px; text-align: center;">
+            <h3 style="margin-bottom: 1rem;">Test Progress</h3>
+            <div style="font-size: 3rem; font-weight: bold; color: #667eea;" id="progress-text">0/17</div>
+            <div style="margin-top: 1rem; height: 20px; background: #e0e0e0; border-radius: 10px; overflow: hidden;">
+                <div id="progress-bar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #667eea, #764ba2); transition: width 0.3s ease;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+            const parent = element.closest('li');
+            const badge = parent.querySelector('.status-badge');
+            
+            if (element.classList.contains('checked')) {
+                badge.textContent = 'PASS';
+                badge.className = 'status-badge pass';
+            } else {
+                badge.textContent = 'TEST';
+                badge.className = 'status-badge test';
+            }
+            
+            updateProgress();
+        }
+        
+        function updateProgress() {
+            const total = document.querySelectorAll('.checkbox').length;
+            const checked = document.querySelectorAll('.checkbox.checked').length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            document.getElementById('progress-text').textContent = `${checked}/${total}`;
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            
+            if (checked === total) {
+                document.getElementById('progress').style.background = '#d4edda';
+                document.getElementById('progress-text').style.color = '#155724';
+                setTimeout(() => {
+                    alert('🎉 All mobile tests complete! Your site is fully responsive!');
+                }, 500);
+            }
+        }
+        
+        updateProgress();
+    </script>
+</body>
+</html>

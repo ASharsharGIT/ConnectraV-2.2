@@ -1,0 +1,544 @@
+/* ================================
+   COMPREHENSIVE MOBILE FIXES
+   Enhanced mobile responsiveness
+   Date: November 16, 2025
+   ================================ */
+
+/* ========== ROTATING HERO TEXT MOBILE FIX ========== */
+@media (max-width: 768px) {
+    .rotating-text {
+        min-height: 180px !important;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+        line-height: 1.2 !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .rotating-text {
+        min-height: 150px !important;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .rotating-text {
+        min-height: 130px !important;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+    }
+}
+
+/* ========== HERO VIDEO MOBILE OPTIMIZATION ========== */
+@media (max-width: 768px) {
+    .hero-video {
+        /* Pause video on very small screens to save performance */
+        display: block;
+    }
+    
+    /* Add stronger overlay on mobile for better text readability */
+    .video-overlay {
+        background: linear-gradient(
+            135deg,
+            rgba(107, 31, 60, 0.25) 0%,
+            rgba(44, 62, 95, 0.20) 50%,
+            rgba(26, 36, 56, 0.15) 100%
+        ) !important;
+    }
+    
+    /* Ensure hero content is always readable */
+    .hero-content {
+        position: relative;
+        z-index: 3 !important;
+    }
+}
+
+/* Hide video on very small/low-powered devices */
+@media (max-width: 480px) {
+    .hero-video {
+        opacity: 0.7; /* Reduce visibility on small screens */
+    }
+}
+
+/* ========== HERO BUTTONS MOBILE STACK ========== */
+@media (max-width: 640px) {
+    .hero-actions {
+        flex-direction: column !important;
+        width: 100% !important;
+        align-items: stretch !important;
+        gap: 1rem !important;
+    }
+    
+    .hero-actions .cta-button {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 1rem 1.5rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* ========== HERO STATS MOBILE LAYOUT ========== */
+@media (max-width: 768px) {
+    .hero-stats {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+        margin-top: 2rem !important;
+    }
+    
+    .hero-stats .stat {
+        text-align: center !important;
+    }
+    
+    .stat-number {
+        font-size: clamp(2rem, 5vw, 2.5rem) !important;
+    }
+    
+    .stat-label {
+        font-size: clamp(0.75rem, 2vw, 0.875rem) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-stats {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+}
+
+/* ========== SERVICE CARDS MOBILE ========== */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    .service-card {
+        margin: 0 !important;
+    }
+    
+    .service-card.primary,
+    .service-card.secondary {
+        grid-column: span 1 !important;
+    }
+    
+    .card-content {
+        padding: 1.5rem !important;
+    }
+    
+    .card-title {
+        font-size: 1.25rem !important;
+    }
+    
+    .card-description {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ========== PARTNERS SECTION MOBILE ========== */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+    }
+    
+    .partner-logo {
+        padding: 1rem !important;
+    }
+    
+    /* Swiper navigation on mobile */
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 18px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ========== FOOTER MOBILE LAYOUT ========== */
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        text-align: center !important;
+    }
+    
+    .footer-column {
+        width: 100% !important;
+    }
+    
+    .footer-logo {
+        justify-content: center !important;
+    }
+    
+    .footer-links {
+        align-items: center !important;
+    }
+    
+    .footer-social {
+        justify-content: center !important;
+    }
+    
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1rem !important;
+        padding: 1rem 0 !important;
+    }
+    
+    .legal-links {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+}
+
+/* ========== SECTION SPACING MOBILE ========== */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 0 !important;
+    }
+    
+    .section-header {
+        margin-bottom: 2rem !important;
+        padding: 0 1rem !important;
+    }
+    
+    .section-title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem) !important;
+    }
+    
+    .section-subtitle {
+        font-size: clamp(0.85rem, 2vw, 1rem) !important;
+    }
+    
+    .section-description {
+        font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+    }
+}
+
+/* ========== CONTACT FORM MOBILE ========== */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 2rem 1.5rem !important;
+        margin: 0 1rem !important;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px !important; /* Prevent iOS zoom */
+        padding: 0.875rem !important;
+    }
+    
+    button[type="submit"] {
+        width: 100% !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* ========== LOCATION CARDS MOBILE ========== */
+@media (max-width: 768px) {
+    .locations-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    .location-card {
+        padding: 1.5rem !important;
+    }
+    
+    .detail-item {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+    }
+    
+    .service-tags {
+        justify-content: flex-start !important;
+    }
+}
+
+/* ========== ABOUT PAGE TIMELINE MOBILE ========== */
+@media (max-width: 768px) {
+    .story-timeline {
+        padding-left: 2rem !important;
+    }
+    
+    .timeline-item {
+        padding-left: 2rem !important;
+    }
+    
+    .timeline-dot {
+        left: 0 !important;
+    }
+    
+    .timeline-content {
+        padding: 1rem !important;
+    }
+}
+
+/* ========== NAVIGATION MOBILE IMPROVEMENTS ========== */
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px !important;
+        padding: 0 1rem !important;
+    }
+    
+    .logo-image {
+        height: 35px !important;
+    }
+    
+    .hamburger {
+        width: 44px !important;
+        height: 44px !important;
+        padding: 10px !important;
+    }
+    
+    .hamburger span {
+        width: 24px !important;
+        height: 3px !important;
+    }
+    
+    /* Mobile menu overlay */
+    .mobile-menu-overlay {
+        padding: 1rem !important;
+    }
+    
+    .mobile-menu-content {
+        width: 100% !important;
+        max-width: 400px !important;
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .mobile-nav a {
+        padding: 1rem !important;
+        font-size: 1.1rem !important;
+        min-height: 48px !important;
+    }
+}
+
+/* ========== TABLE RESPONSIVENESS ========== */
+@media (max-width: 768px) {
+    table {
+        display: block !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        white-space: nowrap !important;
+    }
+    
+    th, td {
+        padding: 0.75rem 0.5rem !important;
+        font-size: 0.875rem !important;
+    }
+}
+
+/* ========== FAQ SECTION MOBILE ========== */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    
+    .faq-question {
+        padding: 1rem !important;
+        font-size: 1rem !important;
+    }
+    
+    .faq-answer {
+        padding: 1rem !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ========== PREVENT TEXT OVERFLOW ========== */
+@media (max-width: 768px) {
+    h1, h2, h3, h4, h5, h6 {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    p, span, div {
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ========== TOUCH DEVICE OPTIMIZATIONS ========== */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .service-card:hover,
+    .partner-logo:hover,
+    .nav-link:hover {
+        transform: none !important;
+    }
+    
+    /* Active states for touch */
+    .service-card:active {
+        transform: scale(0.98) !important;
+        transition: transform 0.1s ease !important;
+    }
+    
+    .cta-button:active {
+        transform: scale(0.96) !important;
+    }
+    
+    /* Increase tap target sizes */
+    a, button, .clickable {
+        min-height: 44px !important;
+        min-width: 44px !important;
+    }
+}
+
+/* ========== SAFE AREA INSETS (iPhone Notch) ========== */
+@supports (padding: max(0px)) {
+    .navbar,
+    .mobile-menu-overlay,
+    .footer {
+        padding-left: max(1rem, env(safe-area-inset-left)) !important;
+        padding-right: max(1rem, env(safe-area-inset-right)) !important;
+    }
+    
+    .mobile-menu-overlay {
+        padding-top: max(1rem, env(safe-area-inset-top)) !important;
+        padding-bottom: max(1rem, env(safe-area-inset-bottom)) !important;
+    }
+}
+
+/* ========== LANDSCAPE ORIENTATION FIX ========== */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto !important;
+        padding: 4rem 0 !important;
+    }
+    
+    .rotating-text {
+        min-height: 100px !important;
+    }
+    
+    .hero-stats {
+        margin-top: 1.5rem !important;
+    }
+    
+    .mobile-menu-overlay {
+        overflow-y: auto !important;
+    }
+}
+
+/* ========== SMALL SCREEN (iPhone SE, etc.) ========== */
+@media (max-width: 375px) {
+    .container {
+        padding: 0 0.75rem !important;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem !important;
+    }
+    
+    .cta-button {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .stat-number {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* ========== PREVENT ZOOM ON INPUT FOCUS (iOS) ========== */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="password"],
+    textarea,
+    select {
+        font-size: 16px !important; /* iOS won't zoom if 16px or larger */
+    }
+}
+
+/* ========== LOADING PERFORMANCE ========== */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========== HIGH CONTRAST MODE SUPPORT ========== */
+@media (prefers-contrast: high) {
+    .cta-button,
+    .service-card,
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        border: 2px solid currentColor !important;
+    }
+}
+
+/* ========== DARK MODE SUPPORT (Future Enhancement) ========== */
+@media (prefers-color-scheme: dark) {
+    /* Placeholder for dark mode support */
+    /* Can be implemented if needed */
+}
+
+/* ========== PRINT STYLES ========== */
+@media print {
+    .navbar,
+    .hamburger,
+    .mobile-menu-overlay,
+    .cta-button,
+    .floating-shapes,
+    .animated-particles,
+    .hero-video,
+    .back-to-top {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+    }
+    
+    .hero,
+    section {
+        page-break-inside: avoid !important;
+    }
+}
+
+/* ========== ACCESSIBILITY: FOCUS VISIBLE ========== */
+@media (max-width: 768px) {
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+        outline: 3px solid #D4AF37 !important;
+        outline-offset: 2px !important;
+    }
+}
